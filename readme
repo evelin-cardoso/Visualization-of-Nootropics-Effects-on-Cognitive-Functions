@@ -1,0 +1,18 @@
+This project aims to visualize the effects of various nootropics on cognitive functions using Python. We will use matplotlib and plotly libraries to create diverse plots, including 3D and interactive graphs. The nootropics studied are caffeine, L-theanine, Ashwagandha, and creatine. Data on their impact on memory, alertness, cognitive flexibility, and other functions will be represented.
+
+Table of Contents
+Introduction
+Data Sources
+Installation
+Usage
+Visualizations
+2D Bar Plot
+3D Plot
+Interactive Plot
+Contributing
+License
+Introduction
+This project provides visual insights into the effects of various nootropics on cognitive functions such as memory improvement, alertness increase, and cognitive flexibility. The visualizations include 2D bar plots, 3D plots, and interactive plots created using Python libraries Matplotlib and Plotly.
+
+Data Sources
+The data used in this project is based on hypothetical values for the effects of nootropics on cognitive functions.
