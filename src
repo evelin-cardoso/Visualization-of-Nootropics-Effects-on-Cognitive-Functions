@@ -1,0 +1,59 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import plotly.express as px
+from mpl_toolkits.mplot3d import Axes3D
+
+# Sample data
+nootropics = ["Caffeine", "L-theanine", "Ashwagandha", "Creatine"]
+memory_improvement = [70, 50, 60, 80]
+alertness_increase = [90, 40, 55, 70]
+cognitive_flexibility = [65, 45, 75, 85]
+
+# 2D Bar Plot
+fig, ax = plt.subplots()
+bar_width = 0.2
+index = np.arange(len(nootropics))
+
+bar1 = ax.bar(index, memory_improvement, bar_width, label='Memory Improvement')
+bar2 = ax.bar(index + bar_width, alertness_increase, bar_width, label='Alertness Increase')
+bar3 = ax.bar(index + 2 * bar_width, cognitive_flexibility, bar_width, label='Cognitive Flexibility')
+
+ax.set_xlabel('Nootropics')
+ax.set_ylabel('Percentage Improvement')
+ax.set_title('Effects of Nootropics on Cognitive Functions')
+ax.set_xticks(index + bar_width)
+ax.set_xticklabels(nootropics)
+ax.legend()
+
+plt.show()
+
+# 3D Plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+xs = np.arange(len(nootropics))
+ys = memory_improvement
+zs = alertness_increase
+ax.bar(xs, ys, zs=0, zdir='y', alpha=0.8)
+ax.bar(xs, zs, zs=ys, zdir='y', alpha=0.8, color='r')
+
+ax.set_xlabel('Nootropics')
+ax.set_ylabel('Memory Improvement')
+ax.set_zlabel('Alertness Increase')
+
+plt.xticks(xs, nootropics)
+plt.show()
+
+# Interactive Plot
+data = {
+    "Nootropics": nootropics,
+    "Memory Improvement": memory_improvement,
+    "Alertness Increase": alertness_increase,
+    "Cognitive Flexibility": cognitive_flexibility
+}
+
+df = pd.DataFrame(data)
+fig = px.scatter_3d(df, x='Memory Improvement', y='Alertness Increase', z='Cognitive Flexibility',
+                    color='Nootropics', size='Memory Improvement', hover_name='Nootropics')
+fig.show()
